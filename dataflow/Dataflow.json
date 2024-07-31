@@ -1,5 +1,5 @@
 {
-	"name": "TransformLaureatesDataFlow",
+	"name": "Dataflow",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -24,6 +24,9 @@
 			"transformations": [
 				{
 					"name": "ParseJSON"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -34,7 +37,9 @@
 				"TempJsonStoreSource parse(partitionBy('hash', 1),",
 				"     format: 'json',",
 				"     documentForm: 'documentPerLine') ~> ParseJSON",
-				"ParseJSON sink(allowSchemaDrift: true,",
+				"ParseJSON select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SQLServerSink"
