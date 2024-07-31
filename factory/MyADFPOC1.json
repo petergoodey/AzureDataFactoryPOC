@@ -1,0 +1,15 @@
+{
+	"name": "MyADFPOC1",
+	"properties": {
+		"globalConfigurations": {
+			"factoryStagingLSReferenceName": "AzureBlobStorage1",
+			"factoryStagingLSType": "LinkedServiceReference"
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "95f9924b-96d9-4a3d-8c19-ff5c1774579f",
+		"tenantId": "ae99dce0-b33a-4348-8444-eafe876e4245"
+	}
+}

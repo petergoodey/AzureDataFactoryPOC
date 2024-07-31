@@ -1,0 +1,18 @@
+{
+	"name": "MyIntegrationRuntime",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "East US",
+				"dataFlowProperties": {
+					"computeType": "General",
+					"coreCount": 2,
+					"timeToLive": 0,
+					"cleanup": false,
+					"customProperties": []
+				}
+			}
+		}
+	}
+}

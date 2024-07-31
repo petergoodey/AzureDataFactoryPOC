@@ -1,0 +1,45 @@
+{
+	"name": "CSVDataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CSVSource",
+						"type": "DatasetReference"
+					},
+					"name": "CSVClient1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "CSVSource",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "parse1"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     limit: 100,",
+				"     ignoreNoFilesFound: false) ~> CSVClient1",
+				"CSVClient1 parse(format: 'delimited',",
+				"     columnNamesAsHeader: true,",
+				"     columnDelimiter: ',',",
+				"     nullValue: '\"\"') ~> parse1",
+				"parse1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
