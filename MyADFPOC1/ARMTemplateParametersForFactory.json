@@ -8,11 +8,11 @@
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
+		"LaureatesRestService_properties_typeProperties_url": {
+			"value": "https://api.nobelprize.org/2.1/laureates"
+		},
 		"trigger1_properties_typeProperties_scope": {
 			"value": "/subscriptions/19a026e8-0816-460d-a3bb-157d51cd82a8/resourceGroups/MyADFRG/providers/Microsoft.Storage/storageAccounts/myadstorageaccount7931"
-		},
-		"dummyjson_com_properties_typeProperties_url": {
-			"value": "https://dummyjson.com/recipies"
 		}
 	}
 }
