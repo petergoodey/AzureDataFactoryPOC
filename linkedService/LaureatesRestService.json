@@ -1,0 +1,7 @@
+{
+	"name": "LaureatesRestService",
+	"properties": {
+		"type": "RestService",
+		"annotations": []
+	}
+}
