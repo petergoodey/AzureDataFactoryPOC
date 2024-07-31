@@ -12,11 +12,18 @@
 					"name": "TempJsonStoreSource"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					},
+					"name": "SQLServerSink"
+				}
+			],
 			"transformations": [
 				{
-					"name": "ColumnMapping",
-					"description": "Creating/updating the columns "
+					"name": "ParesJSON2"
 				}
 			],
 			"scriptLines": [
@@ -24,7 +31,12 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> TempJsonStoreSource",
-				"TempJsonStoreSource derive(column1 = ERROR_FUNCTION('')) ~> ColumnMapping"
+				"TempJsonStoreSource parse(format: 'json',",
+				"     documentForm: 'documentPerLine') ~> ParesJSON2",
+				"ParesJSON2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SQLServerSink"
 			]
 		}
 	}
