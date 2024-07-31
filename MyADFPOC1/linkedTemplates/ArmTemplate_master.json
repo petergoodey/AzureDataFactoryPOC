@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/19a026e8-0816-460d-a3bb-157d51cd82a8/resourceGroups/MyADFRG/providers/Microsoft.Storage/storageAccounts/myadstorageaccount7931"
 		},
+		"dummyjson_com_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dummyjson.com/recipies"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,6 +51,9 @@
 					},
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					},
+					"dummyjson_com_properties_typeProperties_url": {
+						"value": "[parameters('dummyjson_com_properties_typeProperties_url')]"
 					}
 				}
 			},
