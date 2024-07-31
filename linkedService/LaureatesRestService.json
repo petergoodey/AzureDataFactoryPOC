@@ -1,7 +1,16 @@
 {
 	"name": "LaureatesRestService",
 	"properties": {
+		"annotations": [],
 		"type": "RestService",
-		"annotations": []
+		"typeProperties": {
+			"url": "https://api.nobelprize.org/2.1/laureates",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		},
+		"connectVia": {
+			"referenceName": "MyIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
 	}
 }
