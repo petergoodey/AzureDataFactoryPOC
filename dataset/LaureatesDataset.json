@@ -1,0 +1,12 @@
+{
+	"name": "LaureatesDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LaureatesRestService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
