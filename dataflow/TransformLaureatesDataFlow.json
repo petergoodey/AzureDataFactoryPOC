@@ -23,7 +23,7 @@
 			],
 			"transformations": [
 				{
-					"name": "ParesJSON2"
+					"name": "ParseJSON"
 				}
 			],
 			"scriptLines": [
@@ -31,9 +31,10 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> TempJsonStoreSource",
-				"TempJsonStoreSource parse(format: 'json',",
-				"     documentForm: 'documentPerLine') ~> ParesJSON2",
-				"ParesJSON2 sink(allowSchemaDrift: true,",
+				"TempJsonStoreSource parse(partitionBy('hash', 1),",
+				"     format: 'json',",
+				"     documentForm: 'documentPerLine') ~> ParseJSON",
+				"ParseJSON sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SQLServerSink"
