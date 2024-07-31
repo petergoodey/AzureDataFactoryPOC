@@ -1,0 +1,30 @@
+{
+	"name": "JSONAPIPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "GetJSONFromAPI",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"datasets": [],
+					"url": "https://localhost/api/v2",
+					"authentication": {
+						"type": "Basic",
+						"username": "guest"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
