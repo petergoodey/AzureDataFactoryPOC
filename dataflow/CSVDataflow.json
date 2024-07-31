@@ -23,7 +23,7 @@
 			],
 			"transformations": [
 				{
-					"name": "parse1"
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -31,11 +31,8 @@
 				"     validateSchema: false,",
 				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> CSVClient1",
-				"CSVClient1 parse(format: 'delimited',",
-				"     columnNamesAsHeader: true,",
-				"     columnDelimiter: ',',",
-				"     nullValue: '\"\"') ~> parse1",
-				"parse1 sink(allowSchemaDrift: true,",
+				"CSVClient1 derive() ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
