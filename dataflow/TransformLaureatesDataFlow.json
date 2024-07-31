@@ -13,12 +13,18 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "ColumnMapping",
+					"description": "Creating/updating the columns "
+				}
+			],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> TempJsonStoreSource"
+				"     documentForm: 'documentPerLine') ~> TempJsonStoreSource",
+				"TempJsonStoreSource derive(column1 = ERROR_FUNCTION('')) ~> ColumnMapping"
 			]
 		}
 	}
