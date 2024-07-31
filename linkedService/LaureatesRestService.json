@@ -11,6 +11,7 @@
 		"connectVia": {
 			"referenceName": "MyIntegrationRuntime",
 			"type": "IntegrationRuntimeReference"
-		}
+		},
+		"description": "Fetches Nobel Laurates"
 	}
 }
