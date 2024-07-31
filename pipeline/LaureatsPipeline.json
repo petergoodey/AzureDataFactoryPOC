@@ -59,7 +59,14 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"message": "Failed to retrieve data from API",
+					"errorCode": {
+						"value": "@activity('CopyFromAPIToJSONBlob').output.pipelineReturnValue",
+						"type": "Expression"
+					}
+				}
 			},
 			{
 				"name": "TransfromData",
@@ -81,6 +88,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "TransformLaureatesDataFlow",
+						"type": "DataFlowReference"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"

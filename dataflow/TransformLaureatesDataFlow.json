@@ -1,0 +1,25 @@
+{
+	"name": "TransformLaureatesDataFlow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "TempJSONStore",
+						"type": "DatasetReference"
+					},
+					"name": "TempJsonStoreSource"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> TempJsonStoreSource"
+			]
+		}
+	}
+}
