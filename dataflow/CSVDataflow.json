@@ -6,16 +6,16 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "CSVSource",
+						"referenceName": "SQLServerSink",
 						"type": "DatasetReference"
 					},
-					"name": "CSVClient1"
+					"name": "CSVBlob"
 				}
 			],
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "CSVSource",
+						"referenceName": "SQLServerSink",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -30,8 +30,9 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     limit: 100,",
-				"     ignoreNoFilesFound: false) ~> CSVClient1",
-				"CSVClient1 derive() ~> derivedColumn1",
+				"     ignoreNoFilesFound: false) ~> CSVBlob",
+				"CSVBlob derive(column1 = ERROR_FUNCTION(''),",
+				"          each(match(), ERROR_FUNCTION('') = ERROR_FUNCTION(''))) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
